@@ -1,11 +1,11 @@
 import Fastify from "fastify"
-import { fastifyApp } from "."
+import { routes } from "./routes"
 
 const fastify = Fastify({
   logger: false,
 })
 
-fastify.register(fastifyApp)
+fastify.register(routes)
 
 export default async (req: Request, res: Response) => {
   fastify.ready()

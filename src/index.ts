@@ -1,8 +1,11 @@
-import Fastify, { FastifyInstance, FastifyPluginAsync } from "fastify"
+import Fastify from "fastify"
+import { routes } from "./routes"
 
 const fastify = Fastify({
   logger: true,
 })
+
+fastify.register(routes, { prefix: "/api" })
 
 fastify.listen({ port: 3333 }, (err) => {
   if (err) {
@@ -10,11 +13,3 @@ fastify.listen({ port: 3333 }, (err) => {
     process.exit(1)
   }
 })
-
-export const fastifyApp: FastifyPluginAsync = async (
-  fastify: FastifyInstance
-) => {
-  fastify.get("/", (request, reply) => {
-    reply.send({ hello: "world" })
-  })
-}
