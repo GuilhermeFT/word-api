@@ -8,6 +8,6 @@ const fastify = Fastify({
 fastify.register(routes)
 
 export default async (req: Request, res: Response) => {
-  fastify.ready()
+  await fastify.ready()
   fastify.server.emit("request", req, res)
 }
