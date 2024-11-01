@@ -1,11 +1,7 @@
-import Fastify from "fastify"
+import Fastify, { FastifyInstance, FastifyPluginAsync } from "fastify"
 
 const fastify = Fastify({
   logger: true,
-})
-
-fastify.get("/", (request, reply) => {
-  reply.send({ hello: "world" })
 })
 
 fastify.listen({ port: 3333 }, (err) => {
@@ -14,3 +10,11 @@ fastify.listen({ port: 3333 }, (err) => {
     process.exit(1)
   }
 })
+
+export const fastifyApp: FastifyPluginAsync = async (
+  fastify: FastifyInstance
+) => {
+  fastify.get("/", (request, reply) => {
+    reply.send({ hello: "world" })
+  })
+}
