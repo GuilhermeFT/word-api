@@ -8,6 +8,6 @@
     "skipLibCheck": true,
     "moduleResolution": "Bundler"
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "api/serverless.ts"],
   "exclude": ["node_modules"]
 }
