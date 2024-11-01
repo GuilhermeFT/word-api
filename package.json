@@ -2,9 +2,10 @@
   "name": "countries-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "scripts": {
-    "dev": "tsx watch ./src/index.ts"
+    "dev": "tsx watch ./src/index.ts",
+    "start": "tsx ./src/"
   },
   "keywords": [],
   "author": "",
